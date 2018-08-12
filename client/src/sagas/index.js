@@ -41,7 +41,8 @@ function* requestedSendPizzaAsync(action) {
         yield put(successSendPizza(res.data))
         yield call(() => requestedAdminListAsync())
     } catch(error) {
-        yield put(requestLoginError())
+        yield put(errorSendPizza())
+
     }
 }
 
@@ -64,7 +65,7 @@ function* requestLoginAsync(action) {
         yield put(getUserData(userData));
         yield call(history.push, '/admin');
     } catch(error) {
-        yield call(()=>{setMessage(res)})
+        yield put(requestLoginError(error))
     }
 }
 
