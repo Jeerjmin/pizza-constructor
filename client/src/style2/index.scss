@@ -1,0 +1,293 @@
+
+p {
+  margin: 10px 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+h3 {
+  margin-bottom: 0px;
+}
+
+input {
+  cursor: pointer;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  outline: 2px solid black;
+  padding: 5px 20px;
+  margin: 30px;
+
+  &:hover {
+    outline: 3px solid black;
+  }
+}
+
+
+.app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+.сonstructor {
+  width: 30%;
+  box-shadow: 0 0 10px green;
+  padding: 10px;
+  margin: 10px;
+  font-family: Georgia;
+
+  .constr_fillings_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 5px 5px 5px #f2f2f2;
+    margin: 10px;
+    padding: 5px;
+
+    .constr_base_filling {
+      margin: 5px;
+    }
+
+    .constr_filling {
+      box-shadow: 0px 2px #f2f2f2;
+      margin: 5px;
+      cursor: pointer;
+
+      &:hover {
+        outline: 2px solid black;
+      }
+    }
+  }
+}
+
+.pizza {
+  width: 30%;
+  margin: 10px;
+  box-shadow: 0 0 10px blue;
+  padding: 10px;
+  font-family: Georgia;
+
+    .pizza_fillings_grid  {
+      box-shadow: 0px 2px #f2f2f2;
+      display: flex;
+      flex-wrap:wrap;
+      justify-content: center;
+      align-items:stretch;
+      margin: 10px 10px;
+      padding: 10px;
+
+        .pizza_base_filling {
+          font-weight: bold;
+          border: 2px solid #f2f2f2;
+          border-radius: 30px;
+          width: 90%;
+          margin: 10px auto;
+          padding: 5px;
+        }
+        .pizza_filling {
+          font-style: italic;
+          border: 2px solid #f2f2f2;
+          border-radius: 20px;
+          margin: 10px;
+          width: 30%;
+          padding: 5px;
+
+            .pizza_filling_add {
+              border: 0;
+              font-size: 30px;
+              font-weight: bold;
+              color: green;
+              margin: 0 10px;
+            }
+            .pizza_filling_remove {
+              border: 0;
+              font-size: 30px;
+              font-weight: bold;
+              color: red;
+              margin: 0 10px;
+            }
+        }
+    }
+    .pizza_property {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .pizza_property_count{
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+          .pizza_property_count_add {
+            border: 0;
+            font-size: 30px;
+            font-weight: bold;
+            color: green;
+            margin: 0 10px;
+
+          }
+          p {
+            width: 200px;
+          }
+          .pizza_property_count_remove {
+            border: 0;
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            margin: 0 10px;
+          }
+      }
+
+      .pizza_input_name {
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        background: #ffffff;
+        outline: none;
+        height: 24px;
+        width: 140px;
+        font-size: 16px;
+        margin: 20px 0;
+      }
+    }
+
+    .pizza_button_order {
+      margin: 10px;
+      width: 35%;
+      font-size: 20px;
+      border-radius: 15px;
+      color: white;
+      background: red;
+      border-color: red;
+    }
+}
+
+
+
+
+.admin {
+  height: 100vh;
+  width: 30%;
+  box-shadow: 0 0 10px red;
+  font-family: Georgia;
+  padding: 10px;
+  margin: 10px;
+
+    .admin_navig_items {
+      margin: 30px;
+
+      .navig_login {
+
+      }
+    }
+
+    .admin_pizza_list {
+      height: 80vh;
+      overflow: auto;
+
+        .admin_pizza_el {
+          border: 2px solid grey;
+          border-radius: 10px;
+          padding: 10px;
+          margin: 10px;
+
+            .admin_pizza_fillings_list {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: center;
+
+                .admin_pizza_filling {
+                  font-style:italic;
+                  border: 2px solid #f2f2f2;
+                  border-radius: 10px;
+                  margin: 5px;
+                  padding: 5px;
+                  text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input:not([type="button"]) {
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    height: 24px;
+    width: 160px;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+
+  input[type="button"] {
+    margin: 10px;
+    width: 35%;
+    font-size: 20px;
+    border-radius: 15px;
+    color: white;
+    background: grey;
+    border-color: grey;
+  }
+}
+
+
+
+@media (max-width: 1500px) {
+  img {
+    width: 80px;
+    height: 80px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1300px) {
+  .сonstructor {
+    width: 45%;
+  }
+  .pizza {
+    width: 45%;
+  }
+  .admin {
+    width: 95%;
+  }
+}
+
+@media (max-width: 850px) {
+  .сonstructor {
+    width: 95%;
+  }
+  .pizza {
+    width: 95%;
+  }
+  .admin {
+    width: 95%;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+}
