@@ -23,11 +23,6 @@ function setLoginToken(res) {
     return res.data.userData
 }
 
-function setMessage(res) {
-  if (res.response.data.errors) {
-    localStorage.setItem('errorMessage',res.response.data.errors)
-  }
-}
 
 function* requestedAdminListAsync() {
     try {
@@ -46,7 +41,7 @@ function* requestedSendPizzaAsync(action) {
         yield put(successSendPizza(res.data))
         yield call(() => requestedAdminListAsync())
     } catch(error) {
-        yield put(errorSendPizza())
+        yield put(requestLoginError())
     }
 }
 
