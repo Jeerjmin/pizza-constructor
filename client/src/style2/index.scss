@@ -190,13 +190,14 @@ a {
     .admin_navig_items {
       display: flex;
       justify-content: center;
-      
+
       .navig_login {
 
       }
     }
 
     .admin_pizza_list {
+      margin-top: 20px;
       height: 80vh;
       overflow: auto;
 

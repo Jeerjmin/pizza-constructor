@@ -89,8 +89,8 @@
   },
   "babel": {
     "plugins": [
-    "transform-decorators-legacy"
-  ],
+      "transform-decorators-legacy"
+    ],
     "presets": [
       "react-app"
     ]
