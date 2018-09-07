@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {authLoad} from '../../actions'
-import { Redirect } from 'react-router-dom';
-import Auth from '../../modules/Auth'
 import {connect} from 'react-redux';
 
 @connect(
@@ -9,13 +6,14 @@ import {connect} from 'react-redux';
         auth: state.AuthStore,
     }),
     {
-      authLoad
+
     })
-export default class Login extends Component {
+export default class Register extends Component {
 
 
   state = {
       user: {
+          email: '',
           username: '',
           password: ''
       },
@@ -29,28 +27,27 @@ export default class Login extends Component {
       this.setState({ user })
   }
 
-clickLogin = (event) => {
+clickRegister = (event) => {
     event.preventDefault();
     const username = encodeURIComponent(this.state.user.username);
+    const email = encodeURIComponent(this.state.user.email);
     const password = encodeURIComponent(this.state.user.password);
-    const formData = `username=${username}&password=${password}`;
-    this.props.sendLogin(formData)
+    const formData = `username=${username}&email=${email}&password=${password}`;
+    this.props.sendRegister(formData)
 }
 
 render() {
-    console.log('Login.js render')
-    if (this.props.auth.loaded===true) {
-        return (
-            <Redirect to={{
-                pathname: "/home",
-            }} />
-        );
-    }
+    console.log('Register.js render', this.props)
 
     return (
-        <div className="login">
-            {this.props.auth.success_message?(<b>{this.props.auth.success_message}</b>):null}
-            {this.props.auth.error_login?(<b>{this.props.auth.error_login}</b>):null}
+        <div className="register">
+          {this.props.auth.error?(<b>{this.props.auth.error}</b>):null}
+              <input
+                  type="text"
+                  id="email"
+                  value={this.state.user.email}
+                  onChange={this.handleChange}
+                  placeholder="email" />
                 <input
                     type="text"
                     id="username"
@@ -64,11 +61,12 @@ render() {
                     onChange={this.handleChange}
                     placeholder="password"/>
 
-                {this.props.auth.sending_login?(<b>Loading</b>):
-                (<input
-                    type="button"
-                    onClick ={this.clickLogin}
-                    value="Login" />)}
+                  {this.props.auth.sending?(<b>Loading</b>):
+                  (<input
+                      type="button"
+                      onClick ={this.clickRegister}
+                      value="Register" />)}
+
         </div>
     );
 }

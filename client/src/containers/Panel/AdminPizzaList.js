@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import Auth from '../../modules/Auth'
 import AdminPizzaElement from '../../components/Admin/AdminPizzaElement'
 
-class AdminPizzaList extends Component {
+import {connect} from 'react-redux';
+
+@connect(
+    state => ({
+        auth: state.AuthStore,
+    }),  {}
+  )
+export default class AdminPizzaList extends Component {
 
   makeAdminList = () => {
 
@@ -28,20 +35,21 @@ class AdminPizzaList extends Component {
 
   render() {
       console.log('AdminPizzaList render')
-      if (!Auth.isUserAuthenticated()) {
+      if (this.props.auth.loaded) {
+        return (
+            <div className="admin_pizza_list">
+                <h3>Список заказов</h3>
+                {this.makeAdminList()}
+            </div>
+        );
+      } else {
+
           return(
               <div>
                   <p>Hello, you are not logged in.</p>
               </div>
           )
-      } else {
-          return (
-              <div className="admin_pizza_list">
-                  {this.makeAdminList()}
-              </div>
-          );
+
       }
   }
 }
-
-export default AdminPizzaList;

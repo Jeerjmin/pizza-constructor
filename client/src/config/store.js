@@ -9,7 +9,7 @@ export const store = createStore(
     reducers,
     compose(
         applyMiddleware(sagaMiddleware),
-        window.devToolsExtension()
+        (window.devToolsExtension? window.devToolsExtension():compose())
     )
 );
 

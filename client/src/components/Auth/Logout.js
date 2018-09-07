@@ -10,7 +10,7 @@ class Logout extends PureComponent {
         console.log('Logout.js render')
         return (
             <Redirect to={{
-                pathname: "/admin",
+                pathname: "/home",
             }} />
         );
     }

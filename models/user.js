@@ -6,8 +6,18 @@ const UserSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
+    email: {
+        type: String,
+        unique: true
+    },
     password: {
         type: String
+    },
+    scope: {
+      type: Number
+    },
+    sessions: {
+        type: mongoose.Schema.Types.Mixed
     }
 });
 

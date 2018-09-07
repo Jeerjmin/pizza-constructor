@@ -1,3 +1,11 @@
+export const usersLoad = () => ({
+  type: "USERS_LOAD"
+})
+
+export const authLoad = () => ({
+  type: "AUTH_LOAD"
+})
+
 export const updateStatus = (status,id) => ({
     type: "UPDATE_STATUS",
     status,
@@ -52,6 +60,11 @@ export const successSendPizza = (data) => ({
 
 export const errorSendPizza = () => ({
     type: "ERROR_SEND_PIZZA"
+})
+
+export const sendRegister = (formData) => ({
+    type: "REGISTRATION",
+    formData
 })
 
 export const sendLogin = (formData) => ({
