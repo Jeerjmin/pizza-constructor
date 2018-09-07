@@ -42,7 +42,12 @@ function* requestedSendPizzaAsync(action) {
         yield put(successSendPizza(res.data))
         yield call(() => requestedAdminListAsync())
     } catch(error) {
+<<<<<<< HEAD
       yield put(errorSendPizza())
+=======
+        yield put(errorSendPizza())
+
+>>>>>>> b9a978b23405549c4bb8ce52ea2bdab9d9187ace
     }
 }
 
@@ -84,6 +89,7 @@ function* requestRegAsync(action) {
 
 function* requestLoginAsync(action) {
     try {
+<<<<<<< HEAD
       const res = yield call(() => axiosData('/auth/login', 'POST', action.formData))
       if (res) {
         const {success, user, errors} = res.data
@@ -100,6 +106,15 @@ function* requestLoginAsync(action) {
     }
     catch(err) {
       yield put({type: "LOGIN_FAILURE", err})
+=======
+        yield put(requestLogin())
+        var res = yield call(() => axiosData('/auth/login','POST',action.formData))
+        const userData = yield call(() => setLoginToken(res))
+        yield put(getUserData(userData));
+        yield call(history.push, '/admin');
+    } catch(error) {
+        yield put(requestLoginError(error))
+>>>>>>> b9a978b23405549c4bb8ce52ea2bdab9d9187ace
     }
 }
 
